@@ -1,0 +1,877 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RoadSense-Mobile Register</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #1e3a8a,
+                    #0f766e,
+                    #16a34a
+                );
+
+            background-size: 400% 400%;
+
+            animation: backgroundAnimation 12s ease infinite;
+
+            color: white;
+        }
+
+
+        @keyframes backgroundAnimation {
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+
+        }
+
+
+        /* NAVBAR */
+
+        nav {
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 20px 8%;
+
+            background: rgba(15, 23, 42, 0.75);
+
+            backdrop-filter: blur(12px);
+
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+        }
+
+
+        .logo {
+
+            font-size: 24px;
+
+            font-weight: bold;
+
+            margin-right: auto;
+
+            color: #4ade80;
+
+            letter-spacing: 1px;
+        }
+
+
+        nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 30px;
+
+            font-size: 17px;
+
+            font-weight: 600;
+
+            position: relative;
+
+            transition: 0.3s;
+        }
+
+
+        nav a::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: -7px;
+
+            width: 0;
+
+            height: 3px;
+
+            background: #4ade80;
+
+            border-radius: 10px;
+
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+
+            color: #4ade80;
+        }
+
+
+        nav a:hover::after {
+
+            width: 100%;
+        }
+
+
+        /* MAIN PAGE */
+
+        .page-wrapper {
+
+            min-height: calc(100vh - 80px);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 60px 20px;
+        }
+
+
+        /* REGISTER CARD */
+
+        .container {
+
+            width: 100%;
+
+            max-width: 500px;
+
+            padding: 40px;
+
+            border-radius: 25px;
+
+            background: rgba(255, 255, 255, 0.12);
+
+            backdrop-filter: blur(16px);
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.35);
+
+            animation: cardAnimation 0.8s ease;
+        }
+
+
+        @keyframes cardAnimation {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+        /* REGISTER ICON */
+
+        .register-icon {
+
+            width: 80px;
+
+            height: 80px;
+
+            margin: 0 auto 20px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 50%;
+
+            font-size: 38px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #22c55e,
+                    #3b82f6
+                );
+
+            box-shadow:
+                0 8px 25px rgba(34, 197, 94, 0.35);
+        }
+
+
+        /* TITLE */
+
+        h1 {
+
+            text-align: center;
+
+            font-size: 36px;
+
+            margin-bottom: 10px;
+
+            color: white;
+        }
+
+
+        .subtitle {
+
+            text-align: center;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+
+            letter-spacing: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #4ade80,
+                    #22d3ee,
+                    #60a5fa
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .description {
+
+            text-align: center;
+
+            color: #dbeafe;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* ERROR MESSAGE */
+
+        .error {
+
+            background: rgba(239, 68, 68, 0.18);
+
+            color: #fecaca;
+
+            border: 1px solid rgba(239, 68, 68, 0.5);
+
+            padding: 12px;
+
+            margin-bottom: 20px;
+
+            text-align: center;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+        }
+
+
+        /* FORM */
+
+        form {
+
+            margin-top: 10px;
+        }
+
+
+        .input-group {
+
+            margin-bottom: 18px;
+        }
+
+
+        label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            color: #f1f5f9;
+        }
+
+
+        input {
+
+            width: 100%;
+
+            padding: 14px 15px;
+
+            font-size: 15px;
+
+            color: white;
+
+            background: rgba(255, 255, 255, 0.12);
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            border-radius: 10px;
+
+            outline: none;
+
+            transition: 0.3s;
+        }
+
+
+        input::placeholder {
+
+            color: #cbd5e1;
+        }
+
+
+        input:focus {
+
+            border-color: #4ade80;
+
+            background: rgba(255, 255, 255, 0.18);
+
+            box-shadow:
+                0 0 0 3px rgba(74, 222, 128, 0.18);
+        }
+
+
+        /* REGISTER BUTTON */
+
+        button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            margin-top: 8px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            color: white;
+
+            cursor: pointer;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #22c55e,
+                    #16a34a
+                );
+
+            box-shadow:
+                0 8px 20px rgba(34, 197, 94, 0.3);
+
+            transition: 0.3s;
+        }
+
+
+        button:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 30px rgba(34, 197, 94, 0.45);
+        }
+
+
+        button:active {
+
+            transform: translateY(0);
+        }
+
+
+        /* LOGIN LINK */
+
+        .login-text {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: #e2e8f0;
+
+            font-size: 15px;
+        }
+
+
+        .login-text a {
+
+            color: #4ade80;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            margin-left: 5px;
+
+            transition: 0.3s;
+        }
+
+
+        .login-text a:hover {
+
+            color: #86efac;
+
+            text-decoration: underline;
+        }
+
+
+        /* SECURITY INFO */
+
+        .security-info {
+
+            margin-top: 25px;
+
+            padding-top: 20px;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+            text-align: center;
+
+            font-size: 13px;
+
+            color: #cbd5e1;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 768px) {
+
+            nav {
+
+                padding: 18px 5%;
+            }
+
+
+            .logo {
+
+                font-size: 18px;
+            }
+
+
+            nav a {
+
+                margin-left: 15px;
+
+                font-size: 14px;
+            }
+
+
+            .container {
+
+                max-width: 450px;
+
+                padding: 35px 25px;
+            }
+
+
+            h1 {
+
+                font-size: 31px;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            nav {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 15px;
+            }
+
+
+            .logo {
+
+                width: 100%;
+
+                text-align: center;
+
+                margin-right: 0;
+            }
+
+
+            nav a {
+
+                margin: 0 8px;
+            }
+
+
+            .page-wrapper {
+
+                padding: 40px 15px;
+            }
+
+
+            .container {
+
+                padding: 30px 20px;
+            }
+
+
+            h1 {
+
+                font-size: 28px;
+            }
+
+
+            .subtitle {
+
+                font-size: 17px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVIGATION BAR -->
+
+    <nav>
+
+        <div class="logo">
+
+            🛣 RoadSense
+
+        </div>
+
+
+        <a href="/">
+
+            Home
+
+        </a>
+
+
+        <a href="/login/">
+
+            Login
+
+        </a>
+
+
+        <a href="/register/">
+
+            Register
+
+        </a>
+
+    </nav>
+
+
+
+    <!-- REGISTER PAGE -->
+
+    <div class="page-wrapper">
+
+
+        <div class="container">
+
+
+            <!-- REGISTER ICON -->
+
+            <div class="register-icon">
+
+                👤
+
+            </div>
+
+
+
+            <!-- TITLE -->
+
+            <h1>
+
+                Create Account
+
+            </h1>
+
+
+            <div class="subtitle">
+
+                ROADSENSE-MOBILE
+
+            </div>
+
+
+            <p class="description">
+
+                Register to access the RoadSense-Mobile platform
+                and start using smart road surface detection features.
+
+            </p>
+
+
+
+            <!-- ERROR MESSAGE -->
+
+            {% if error %}
+
+                <div class="error">
+
+                    ⚠️ {{ error }}
+
+                </div>
+
+            {% endif %}
+
+
+
+            <!-- REGISTRATION FORM -->
+
+            <form method="POST">
+
+
+                {% csrf_token %}
+
+
+
+                <!-- USER NAME -->
+
+                <div class="input-group">
+
+
+                    <label for="user_name">
+
+                        👤 User Name
+
+                    </label>
+
+
+                    <input
+
+                        type="text"
+
+                        id="user_name"
+
+                        name="user_name"
+
+                        placeholder="Enter your username"
+
+                        autocomplete="username"
+
+                        required
+
+                    >
+
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+
+                    <label for="password">
+
+                        🔑 Password
+
+                    </label>
+
+
+                    <input
+
+                        type="password"
+
+                        id="password"
+
+                        name="password"
+
+                        placeholder="Create a password"
+
+                        autocomplete="new-password"
+
+                        required
+
+                    >
+
+
+                </div>
+
+
+
+                <!-- MOBILE NUMBER -->
+
+                <div class="input-group">
+
+
+                    <label for="mobile_number">
+
+                        📱 Mobile Number
+
+                    </label>
+
+
+                    <input
+
+                        type="tel"
+
+                        id="mobile_number"
+
+                        name="mobile_number"
+
+                        placeholder="Enter your mobile number"
+
+                        inputmode="numeric"
+
+                        maxlength="10"
+
+                        pattern="[0-9]{10}"
+
+                        required
+
+                    >
+
+
+                </div>
+
+
+
+                <!-- PLACE -->
+
+                <div class="input-group">
+
+
+                    <label for="place">
+
+                        📍 Place
+
+                    </label>
+
+
+                    <input
+
+                        type="text"
+
+                        id="place"
+
+                        name="place"
+
+                        placeholder="Enter your city or place"
+
+                        required
+
+                    >
+
+
+                </div>
+
+
+
+                <!-- REGISTER BUTTON -->
+
+                <button type="submit">
+
+                    🚀 Create RoadSense Account
+
+                </button>
+
+
+            </form>
+
+
+
+            <!-- LOGIN LINK -->
+
+            <p class="login-text">
+
+                Already have an account?
+
+                <a href="/login/">
+
+                    Login Here
+
+                </a>
+
+            </p>
+
+
+
+            <!-- SECURITY MESSAGE -->
+
+            <div class="security-info">
+
+                🔒 Your account information is used for secure
+                access to the RoadSense-Mobile platform.
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
