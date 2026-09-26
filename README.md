@@ -343,38 +343,3 @@ The project can support road monitoring and help identify damaged road surfaces 
 ## 👨‍💻 Author
 
 **Bommena Surya Teja**
-
-B.Tech Computer Science and Engineering
-
-Interested in:
-
-- DevOps
-- Cloud Computing
-- AWS
-- Django
-- Machine Learning
-- Web Development
-
----
-
-## 📌 Repository
-
-```text
-RoadSense-Mobile-Django
-```
-
-GitHub Repository:
-
-```text
-https://github.com/suryatejayadav8/RoadSense-Mobile-Django-.git
-```
-
----
-
-## ⭐ Support
-
-If you find this project useful, consider giving the repository a ⭐ on GitHub.
-
----
-
-© 2026 RoadSense-Mobile
